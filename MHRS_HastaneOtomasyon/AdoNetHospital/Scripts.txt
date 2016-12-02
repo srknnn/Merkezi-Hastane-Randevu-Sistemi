@@ -1,0 +1,139 @@
+1-VIEWLER
+----------
+
+---GETAppointment
+
+CREATE view vW_GetAppointment
+AS
+select AppointmentID,pati.PatientID,pati.FirstName + ' ' + pati.LastName [PatientFullName],doc.DoctorID,DoctorFirstName+ ' '+doc.DoctorLastName [DoctorFullName] ,AppointmentDate,AppointmentTime from Appointment apo
+inner join Patient pati on pati.PatientID=apo.PatientID
+inner join Doctor doc on doc.DoctorID=apo.DoctorID
+    where AppointmentStatus=0
+WITH CHECK OPTION
+
+
+----GETPatient
+CREATE view vW_GetPatient
+AS
+Select PatientID[PatientID],FirstName+' '+LastName [FullName], IdentitiyNumber[IdentityNumber],Gender[Gender],DateOfBirth[DateOfBirth],Email[Email],Password[Password],CellPhone[CellPhone],HomePhone[HomePhone],SecurityQuestion[SecurityQuestion],Answer[Answer],PlaceOfBirth[PlaceOfBirth],MotherName[MotherName],FatherName[FatherName] From Patient Where Deleted=0
+WITH CHECK OPTION
+
+----GETHospitalDetails
+
+CREATE view vW_GetHospitalDetails
+AS
+SELECT  c.CityID [CityID],c.CityName [CityName],t.TownID [TownID],t.TownName [TownName],h.HospitalID [HospitalID],h.HospitalName [HospitalName],cli.ClinicBranch [ClinicBranch],cli.ClinicID [ClinicID],cli.EndTime [ClinicEndTime],cli.StartTime [ClinicStartTime],cli.TimeRange [ClinicTimeRange],doc.Deleted [DoctorDeleted],doc.DoctorFirstName [DoctorFirstName], doc.DoctorLastName [DoctorLastName],doc.DoctorID [DoctorID],tit.TittleID [TittleID],tit.TittleName [TittleName] from City c
+join Town t ON t.CityID = c.CityID
+join Hospital h on h.TownID = t.TownID
+join HospitalClinic hc on hc.HospitalID = h.HospitalID
+join Clinic cli on cli.ClinicID = hc.ClinicID
+join Doctor doc on doc.ClinicID = cli.ClinicID
+join Tittle tit on tit.TittleID = doc.TittleID
+with check option
+
+----GETDeletedPatient
+
+CREATE view vW_GetDeletedPatient
+AS
+Select PatientID,FirstName+' '+LastName [FullName], IdentitiyNumber,Gender,DateOfBirth,Email,Password,CellPhone,HomePhone,SecurityQuestion,Answer,PlaceOfBirth,MotherName,FatherName From Patient Where Deleted=1
+WITH CHECK OPTION
+
+
+2-PROCEDURLER
+
+------ADDAppointment
+
+CREATE Proc sp_AddAppointment
+(
+@PatientId int,
+@DoctorId int,
+@AppointmentDate datetime,
+@AppointmentTime datetime,
+@AppointmentStatus bit=1
+)
+AS
+BEGIN
+insert into Appointment (PatientID,DoctorID,AppointmentDate,AppointmentTime,AppointmentStatus) values(@PatientId,@DoctorId,@AppointmentDate,@AppointmentTime,1)
+END
+
+
+-----ADDPatient
+
+CREATE proc sp_AddPatient
+@FirtsName nvarchar(50),
+@LastName nvarchar(50),
+@IdentityNumber bigint,
+@Gender nvarchar(5),
+@DateOfBirth datetime,
+@Email nvarchar(50),
+@Password nvarchar(50),
+@CellPhone bigint,
+@HomePhone bigint,
+@SecurityQuestion nvarchar(50),
+@Answer nvarchar(50),
+@PlaceOfBirth nvarchar(50)=' ',
+@MotherName nvarchar(50)=' ',
+@FatherName nvarchar(50)=' ',
+@Picture nvarchar(50)=' ',
+@Deleted bit =0
+AS
+BEGIN
+Insert into Patient (FirstName,LastName,IdentitiyNumber,Gender,DateOfBirth,Email,Password,CellPhone,HomePhone,SecurityQuestion,Answer,PlaceOfBirth,MotherName,FatherName,Picture,Deleted) Values(@FirtsName,@LastName,@IdentityNumber,@Gender,@DateOfBirth,@Email,@Password,@CellPhone,@HomePhone,@SecurityQuestion,@Answer,@PlaceOfBirth,@MotherName,@FatherName,@Picture,@Deleted)
+END
+
+---GetAppointmentID
+
+Create Proc sp_GetAppointmentID
+@AppointmentID int
+AS
+BEGIN
+SELECT *FROM vW_GetAppointment where AppointmentID=@AppointmentID
+END
+
+----GETPatientID
+
+Create Proc sp_GetPatientID
+@PatientId int
+AS
+BEGIN
+SELECT*FROM [vW_GetPatient] where PatientID=@PatientId
+END
+
+----UPDATEAppointment
+
+Create Proc sp_UpdateAppointment
+(
+@AppointmentStatus bit,
+@AppointmentId int
+)
+As
+Begin
+update Appointment set AppointmentStatus=@AppointmentStatus Where AppointmentID=@AppointmentId
+END
+
+---UPDATEPatient
+
+Create Proc sp_UpdatePatient
+(
+@FirtsName nvarchar(50),
+@LastName nvarchar(50),
+@IdentityNumber bigint,
+@Gender nvarchar(5),
+@DateOfBirth datetime,
+@Email nvarchar(50),
+@Password nvarchar(50),
+@CellPhone bigint,
+@HomePhone bigint,
+@SecurityQuestion nvarchar(50),
+@Answer nvarchar(50),
+@PlaceOfBirth nvarchar(50),
+@MotherName nvarchar(50),
+@FatherName nvarchar(50),
+@PatientId int
+)
+As
+Begin
+Update Patient Set FirstName=@FirtsName,LastName=@LastName,IdentitiyNumber=@IdentityNumber,Gender=@Gender,DateOfBirth=@DateOfBirth,Email=@Email,Password=@Password,CellPhone=@CellPhone,HomePhone=@HomePhone,SecurityQuestion=@SecurityQuestion,Answer=@Answer,PlaceOfBirth=@PlaceOfBirth,MotherName=@MotherName,FatherName=@FatherName Where PatientID=@PatientId
+End
+
+

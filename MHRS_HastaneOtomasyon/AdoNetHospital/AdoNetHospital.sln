@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Entities", "00-Entities", "{7AC1A17E-549C-4FDC-940B-06932F2B3F95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Data Access Layer", "01-Data Access Layer", "{BE1B6F72-5FAE-4DB1-9B02-06E1A33D13BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Business Layer", "02-Business Layer", "{AB934111-089C-4B85-B055-59DFCAD30F56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Presantation Layer", "03-Presantation Layer", "{BD8DB9ED-A49C-40DF-8C90-067F8FCB860A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entitie", "Entities\Entitie.csproj", "{994D5FE1-C7D3-4157-8470-05B71D5DA083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access Layer", "Data Access Layer\Data Access Layer.csproj", "{6A0C0003-2567-444E-9E34-2427530392F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "LoginForm\LoginForm.csproj", "{B4045EAD-71C1-4147-B508-D5A9FFF49A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0256E15-E3BE-430A-8D37-0B35336A9665}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts.txt = Scripts.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ygtts.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Entities\\Entitie.csproj
+		SccProjectTopLevelParentUniqueName1 = AdoNetHospital.sln
+		SccProjectName1 = Entities
+		SccLocalPath1 = Entities
+		SccProjectUniqueName2 = Data\u0020Access\u0020Layer\\Data\u0020Access\u0020Layer.csproj
+		SccProjectTopLevelParentUniqueName2 = AdoNetHospital.sln
+		SccProjectName2 = Data\u0020Access\u0020Layer
+		SccLocalPath2 = Data\u0020Access\u0020Layer
+		SccProjectUniqueName3 = LoginForm\\LoginForm.csproj
+		SccProjectTopLevelParentUniqueName3 = AdoNetHospital.sln
+		SccProjectName3 = LoginForm
+		SccLocalPath3 = LoginForm
+		SccProjectUniqueName4 = BusinessLayer\\BusinessLayer.csproj
+		SccProjectTopLevelParentUniqueName4 = AdoNetHospital.sln
+		SccProjectName4 = BusinessLayer
+		SccLocalPath4 = BusinessLayer
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{994D5FE1-C7D3-4157-8470-05B71D5DA083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994D5FE1-C7D3-4157-8470-05B71D5DA083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994D5FE1-C7D3-4157-8470-05B71D5DA083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994D5FE1-C7D3-4157-8470-05B71D5DA083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0C0003-2567-444E-9E34-2427530392F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0C0003-2567-444E-9E34-2427530392F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0C0003-2567-444E-9E34-2427530392F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0C0003-2567-444E-9E34-2427530392F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4045EAD-71C1-4147-B508-D5A9FFF49A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4045EAD-71C1-4147-B508-D5A9FFF49A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4045EAD-71C1-4147-B508-D5A9FFF49A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4045EAD-71C1-4147-B508-D5A9FFF49A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{994D5FE1-C7D3-4157-8470-05B71D5DA083} = {7AC1A17E-549C-4FDC-940B-06932F2B3F95}
+		{6A0C0003-2567-444E-9E34-2427530392F8} = {BE1B6F72-5FAE-4DB1-9B02-06E1A33D13BF}
+		{B4045EAD-71C1-4147-B508-D5A9FFF49A53} = {BD8DB9ED-A49C-40DF-8C90-067F8FCB860A}
+		{D1A9F619-AD26-4F41-9C87-B77DAC8E27D9} = {AB934111-089C-4B85-B055-59DFCAD30F56}
+	EndGlobalSection
+EndGlobal
